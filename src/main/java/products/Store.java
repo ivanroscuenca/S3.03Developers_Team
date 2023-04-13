@@ -1,4 +1,4 @@
-package org.example;
+package products;
 
 import java.io.*;
 import java.util.ArrayList;

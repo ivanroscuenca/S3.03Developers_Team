@@ -1,4 +1,4 @@
-package org.example;
+package products;
 
 public class Flower extends Product {
 

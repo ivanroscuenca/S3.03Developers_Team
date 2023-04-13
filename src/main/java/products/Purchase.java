@@ -1,4 +1,4 @@
-package org.example;
+package products;
 
 public class Purchase {
     private Product product;
