@@ -1,5 +1,5 @@
 package products;
-
+// emmanuel
 public class Product {
     private String name;
     private double price;
