@@ -36,7 +36,6 @@ public class Main {
         //10.Printar per pantalla valor total de la floristeria.
         System.out.println("The total value of the stock is : "+ store1.getTotalValue());
 
-
         //11.Crear tickets de compra amb múltiples objectes.
 
         Ticket ticket = new Ticket();

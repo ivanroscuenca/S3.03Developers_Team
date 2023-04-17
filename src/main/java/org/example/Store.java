@@ -8,10 +8,18 @@ public class Store {
     private String nameStore;
     private List<Product> products;
 
+
+
+    // double stock value
+
+
+
     public Store(String nameStore) {
         this.nameStore = nameStore;
         this.products = new ArrayList<>();
     }
+
+
 
 
     public String Stock() {
