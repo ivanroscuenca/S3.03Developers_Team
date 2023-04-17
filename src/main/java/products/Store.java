@@ -2,15 +2,28 @@ package products;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Store {
     private String nameStore;
     private List<Product> products;
+    private static Store store;
 
-    public Store(String nameStore) {
-        this.nameStore = nameStore;
-        this.products = new ArrayList<>();
+    private Store(String name) {
+        this.nameStore=name;
+        products=new ArrayList<>();
+    }
+    /* Making Store singleton */
+    public static Store getStore(String name) {
+        if(store==null) {
+            return new Store(name);
+        }
+        else {
+            store.nameStore=name;
+            return store;
+        }
     }
 
 
@@ -35,7 +48,7 @@ public class Store {
             PrintWriter printWriter = new PrintWriter(fileWriter);
 
             for (Product product : products) {
-                printWriter.println("Product : " + product.getName() + ", Price: " + product.getPrice() + ", Quantity : " + product.getQuantity() + ".");
+                printWriter.println("Product : " + product.getName() + ", Price: " + product.getPrice() + ".");
             }
 
             printWriter.close();
@@ -50,7 +63,7 @@ public class Store {
         String sentence="";
         for (Product product : products) {
 
-            sentence+= "Product : " + product.getName() + ", Quantity : "+ product.getQuantity()+".";
+            sentence+= "Product : " + product.getName() + ", Quantity : "+".";
         }
         return sentence;
     }
@@ -61,7 +74,7 @@ public class Store {
             double totalValue = 0.0;
 
             for (Product product : products) {
-                totalValue += product.getPrice() * product.getQuantity();
+
             }
 
             return totalValue;
