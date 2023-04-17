@@ -4,6 +4,7 @@ public final class Decoration extends Product {
     private final int PRODUCTID=3;
 
     private Materials material;
+    private String s ="hola";
     private static int numDecoration;
     {
         numDecoration++;
