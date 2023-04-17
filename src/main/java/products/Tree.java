@@ -1,4 +1,4 @@
-package org.example;
+package products;
 
 public class Tree extends Product{
     double height;
