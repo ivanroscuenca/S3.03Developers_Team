@@ -1,3 +1,0 @@
-Product : Oak, Price: 80.0, Quantity : 10.
-Product : Rose, Price: 3.0, Quantity : 50.
-Product : Jar, Price: 10.0, Quantity : 20.
