@@ -5,6 +5,8 @@ public class Product {
     protected double price;
     protected int quantity;
 
+    String name2;
+
     public Product(String name, double price, int quantity) {
             this.name = name;
         this.price = price;
