@@ -11,7 +11,7 @@ public class Store {
     private List<Product> products;
     private static Store store;
 
-    private Store(String name) {
+    protected Store(String name) {
         this.nameStore=name;
         products=new ArrayList<>();
     }
@@ -41,7 +41,7 @@ public class Store {
     public void removeProduct(Product product) {
         products.remove(product);
     }
-
+// modified by utils
     public void saveProductsToFile(String fileName) {
         try {
             FileWriter fileWriter = new FileWriter(fileName);
@@ -63,7 +63,7 @@ public class Store {
         String sentence="";
         for (Product product : products) {
 
-            sentence+= "Product : " + product.getName() + ", Quantity : "+".";
+            sentence+= "Product : " + product.getName() + ", Quantity : "+ product.getQuantity()+". ";
         }
         return sentence;
     }
@@ -74,21 +74,11 @@ public class Store {
             double totalValue = 0.0;
 
             for (Product product : products) {
-
+            totalValue += product.getQuantity()* product.getPrice();
             }
 
             return totalValue;
         }
-
-    public Product getProductByName(String name) {
-        for (Product product : products) {
-            if (product.getName().equals(name)) {
-                return product;
-            }
-        }
-        return null;
-    }
-
 
 
 }
