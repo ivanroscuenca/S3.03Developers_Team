@@ -15,12 +15,12 @@ public final class Tree extends Product{
     }
 
     public double getHeight() {
-        return height;
+        return this.height;
     }
+
 
     @Override
     public String toString() {
-
         return super.toString()+" | Product height: "+this.height;
     }
 }
