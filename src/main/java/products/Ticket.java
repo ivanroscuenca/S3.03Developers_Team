@@ -1,28 +1,41 @@
 package products;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+
 
 public class Ticket {
     private int id;
-    private List<Product> products;
-    private List<Integer> quantities;
+//map
+    HashMap<Product, Integer> tickets;
 
-    //constructor
-    public Ticket(int id) {
+    public Ticket(int id, HashMap<Product, Integer> tickets) {
         this.id = id;
-        this.products = new ArrayList<>();
-        this.quantities = new ArrayList<>();
+        this.tickets = tickets;
     }
+//constructor
+//    public Ticket(int id) {
+//        this.id = id;
+//        this.products = new ArrayList<>();
+//        this.quantities = new ArrayList<>();
+//    }
 
     public int getId() {
         return id;
     }
 
-    public void addProduct(Product product, int quantity) {
-        this.products.add(product);
-        this.quantities.add(quantity);
-    }
+public void addproduct(HashMap<Product, Integer> tickets){
+    Product Product;
+    this.tickets.put(Product,Integer);
+}
+
+
+
+//    public void addProduct(Product product, int quantity) {
+//        this.products.add(product);
+//        this.quantities.add(quantity);
+//    }
 
     public void removeProduct(int index) {
         this.products.remove(index);

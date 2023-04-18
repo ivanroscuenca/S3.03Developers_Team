@@ -12,6 +12,8 @@ public class Main {
         decors.add(new Decoration("Jor",20.00,21,Materials.WOOD));
         Utils.fromDecorationSetToFile(decors);
 
+
+
     }
 
 }
