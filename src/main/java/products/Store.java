@@ -96,6 +96,42 @@ public class Store {
                 '}';
     }
 
+    public void updateTrees(String name, int newQuantity){
+        boolean treeNotFound=true;
+        Iterator it = this.trees.iterator();
+        while(treeNotFound && it.hasNext()) {
+            Tree tree = (Tree) it.next();
+            if(tree.name.equals(name)) {
+                tree.quantity=newQuantity;
+                treeNotFound = false;
+            }
+        }
+    }
+
+    public void updateFlowers (String name, int newQuantity){
+        boolean flowerNotFound=true;
+        Iterator it = this.flowers.iterator();
+        while(flowerNotFound && it.hasNext()) {
+            Flower flower = (Flower) it.next();
+            if(flower.name.equals(name)) {
+                flower.quantity=newQuantity;
+                flowerNotFound = false;
+            }
+        }
+    }
+
+    public void updateDecors (String name, int newQuantity){
+        boolean decorNotFound=true;
+        Iterator it = this.decorations.iterator();
+        while(decorNotFound && it.hasNext()) {
+            Decoration decoration = (Decoration) it.next();
+            if(decoration.name.equals(name)) {
+                decoration.quantity=newQuantity;
+                decorNotFound = false;
+            }
+        }
+    }
+
 
 /*
 
