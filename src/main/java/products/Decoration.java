@@ -9,9 +9,13 @@ public final class Decoration extends Product {
     {
         numDecoration++;
     }
-    public Decoration(String name, double price, Materials material) {
-        super(name, price);
+    public Decoration(String name, double price, int quantity, Materials material) {
+        super(name, price, quantity);
         this.material=material;
+    }
+
+    public Materials getMaterial() {
+        return material;
     }
 
     @Override
