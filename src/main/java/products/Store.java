@@ -15,10 +15,9 @@ public class Store {
 
     Store(String name) {
         this.nameStore=name;
-
-        flowers = new HashSet<Flower>();
-        trees = new HashSet<Tree>();
-        decorations = new HashSet<Decoration>();
+        flowers = Utils.fromFileProductToFlowerSet();
+        trees = Utils.fromFileProductToTreeSet();
+        decorations = Utils.fromFileProductToDecorationSet();
     }
     /* Making Store singleton */
     public static Store getStore(String name) {

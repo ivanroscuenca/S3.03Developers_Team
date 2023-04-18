@@ -1,7 +1,6 @@
 package products;
 
 public final class   Flower extends Product {
-
     private String colour;
     static int numFlowers;
 
