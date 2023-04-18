@@ -6,10 +6,15 @@ public class Product {
     protected int quantity;
 
 
-    public Product(String name, double price) {
-        this.name = name;
+
+
+    public Product(String name, double price, int quantity) {
+            this.name = name;
         this.price = price;
         this.quantity = quantity;
+    }
+    public Product() {
+
     }
 
     public String getName() {
@@ -39,10 +44,7 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product{" +
-                "name='" + name + '\'' +
-                ", price=" + price +
-                ", quantity=" + quantity +
-                '}' + "\n";
+
+        return "Product name: "+this.name+" | Product price: "+this.price+" | Product quantity: "+this.quantity;
     }
 }

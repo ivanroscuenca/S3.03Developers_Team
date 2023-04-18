@@ -1,13 +1,22 @@
 package products;
 
-public class    Flower extends Product {
+public final class    Flower extends Product {
 
     //ivan
-    String colour;
+    private String colour;
     static int numFlowers;
 
-    public Flower(String name, double price, String colour) {
-        super(name, price);
+    public Flower(String name, double price,int quantity, String colour) {
+        super(name, price, quantity);
         this.colour = colour;
+    }
+
+
+    public Flower() {
+
+    }
+
+    public String getColour() {
+        return colour;
     }
 }

@@ -1,1 +1,1 @@
-[{"name":"Jar","price":12.2},{"name":"Vue","price":16.2}]
+[{"name":"Vue","price":16.2,"quantity":25,"material":"WOOD"},{"name":"Jar","price":12.2,"quantity":12,"material":"WOOD"}]

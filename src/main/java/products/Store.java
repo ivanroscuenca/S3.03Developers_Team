@@ -5,14 +5,13 @@ import java.util.*;
 
 public class Store {
 
-
     private String nameStore;
+    private static Store store;
 
     private HashSet<Flower> flowers;
     private HashSet<Tree> trees;
     private HashSet<Decoration> decorations;
 
-    private static Store store;
     private double stockValue;
 
     Store(String name) {

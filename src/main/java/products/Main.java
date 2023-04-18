@@ -3,6 +3,7 @@ package products;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
@@ -10,11 +11,10 @@ public class Main {
         Store store = new Store("flor");
 
         store.addDecoration(new Decoration("Jar",12.20, Materials.WOOD));
-        store.addFlower(new Flower("Rose",10.2, "red"));
-        store.addTree(new Tree("Oak",45.5,1.2));
-        store.addTree(new Tree("Pine",23.5,1.0));
-        store.addTree(new Tree("Alder",32.4,1.0));
-        store.addTree(new Tree("Fir",57.5,1.0));
+;
+        store.addTree(new Tree("Oak",45.5,2,1.2));
+
+
         store.printStock();
 
 /*
@@ -22,8 +22,16 @@ public class Main {
         list1.add(new Decoration("Jar",12.20, Materials.WOOD));
         list1.add(new Decoration("Vue",16.20, Materials.WOOD));
         Utils.fromSetToFileProduct(list1);
-  */
 
+        Set<Decoration> list1=new HashSet<>();
+        list1.add(new Decoration("Jar",12.20, 12, Materials.WOOD));
+        list1.add(new Decoration("Vue",16.20, 25, Materials.WOOD));
+        Utils.fromDecorationSetToFile(list1);
+        Set<Decoration> dec = Utils.fromFileProductToDecorationSet();
+        for(Decoration decoration:dec) {
+            System.out.println(decoration);
+        }
+ */
     }
 
 }
