@@ -4,16 +4,19 @@ import java.util.Iterator;
 import java.util.Scanner;
 import java.util.Set;
 
-import static products.Utils.printingSet;
-
 public class Menu {
     public static Scanner sc = new Scanner(System.in);
-    public static Store store = new Store("FlowerWorld");
+    public static Store store;
+
+    static {
+        store = Store.getStore("FlowerWorld");
+        System.out.println(store.getDecorations().isEmpty());
+    }
     public static void menu() {
         boolean continueExecution=true;
         int option;
-        menuHeader();
         while(continueExecution) {
+            menuHeader();
             option = Integer.parseInt(sc.nextLine());
             switch (option) {
                 case 1: {
@@ -44,6 +47,7 @@ public class Menu {
                     break;
                 }
                 case 8: {
+                    printingAllSets();
                     break;
                 }
                 case 9: {
@@ -125,7 +129,7 @@ public class Menu {
     }
     public static void menuTreeRemove() {
         System.out.println("Which tree do you want to remove? Type its name");
-        printingSet(store.getTrees());
+        Utils.printingSet(store.getTrees());
         String name=sc.nextLine();
         boolean treeNotFound=true;
         Iterator it = store.getTrees().iterator();
@@ -140,7 +144,7 @@ public class Menu {
     }
     public static void menuFlowerRemove() {
         System.out.println("Which flower do you want to remove? Type its name");
-        printingSet(store.getFlowers());
+        Utils.printingSet(store.getFlowers());
         String name=sc.nextLine();
         boolean flowerNotFound=true;
         Iterator it = store.getFlowers().iterator();
@@ -155,7 +159,7 @@ public class Menu {
     }
     public static void menuDecorationRemove() {
         System.out.println("Which decoration do you want to remove? Type its name");
-        printingSet(store.getDecorations());
+        Utils.printingSet(store.getDecorations());
         String name=sc.nextLine();
         boolean decorationNotFound=true;
         Iterator it = store.getFlowers().iterator();
@@ -169,4 +173,12 @@ public class Menu {
         Utils.fromDecorationSetToFile(store.getDecorations());
     }
 
+    public static void printingAllSets() {
+        Utils.printingSet(store.getTrees());
+        System.out.println();
+        Utils.printingSet(store.getFlowers());
+        System.out.println();
+        Utils.printingSet(store.getDecorations());
+        System.out.println();
+    }
 }
