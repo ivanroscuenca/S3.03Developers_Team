@@ -58,40 +58,54 @@ public class Utils {
             throw new RuntimeException(e);
         }
     }
-    public static Set<Decoration> fromFileProductToDecorationSet() {
+    public static HashSet<Decoration> fromFileProductToDecorationSet() {
         try {
-            ObjectMapper mapper = new ObjectMapper();
-            Set<Decoration> decorations = new HashSet<>();
+            HashSet<Decoration> decorations = new HashSet<>();
             File file = new File("decorations.json");
-            decorations = mapper.readValue(file, new TypeReference<>() {});
+            if(file.length()!=0) {
+                ObjectMapper mapper = new ObjectMapper();
+                decorations = mapper.readValue(file, new TypeReference<>() {
+                });
+            }
             return decorations;
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public static Set<Flower> fromFileProductToFlowerSet() {
+    public static HashSet<Flower> fromFileProductToFlowerSet() {
         try {
-            ObjectMapper mapper = new ObjectMapper();
-            Set<Flower> flowers = new HashSet<>();
-            File file = new File("decorations.json");
-            flowers = mapper.readValue(file, new TypeReference<>() {});
+            HashSet<Flower> flowers = new HashSet<>();
+            File file=new File("flowers.json");
+            if(file.length()!=0) {
+                ObjectMapper mapper = new ObjectMapper();
+                flowers = mapper.readValue(file, new TypeReference<>() {
+                });
+            }
             return flowers;
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public static Set<Tree> fromFileProductToTreeSet() {
+    public static HashSet<Tree> fromFileProductToTreeSet() {
         try {
-            ObjectMapper mapper = new ObjectMapper();
-            Set<Tree> trees = new HashSet<>();
-            File file = new File("decorations.json");
-            trees = mapper.readValue(file, new TypeReference<>() {});
+            HashSet<Tree> trees = new HashSet<>();
+            File file = new File("trees.json");
+            if(file.length()!=0) {
+                ObjectMapper mapper = new ObjectMapper();
+                trees = mapper.readValue(file, new TypeReference<>() {
+                });
+            }
             return trees;
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
+    public static void printingSet(Set<? extends Product> set) {
+        for(Product product:set) {
+            System.out.println(product);
+        }
+    }
 }
