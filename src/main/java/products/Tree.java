@@ -12,9 +12,5 @@ public final class Tree extends Product{
         this.height=height;
     }
 
-    @Override
-    public String toString() {
 
-        return "Product id: "+this.PRODUCTID+" | "+super.toString()+" | Product height: "+this.height;
-    }
 }

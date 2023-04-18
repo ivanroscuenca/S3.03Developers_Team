@@ -5,11 +5,9 @@ public class Product {
     protected double price;
     protected int quantity;
 
-    String name2;
-    String name3;
-    String name4;
-    public Product(String name, double price, int quantity) {
-            this.name = name;
+
+    public Product(String name, double price) {
+        this.name = name;
         this.price = price;
         this.quantity = quantity;
     }
@@ -45,6 +43,6 @@ public class Product {
                 "name='" + name + '\'' +
                 ", price=" + price +
                 ", quantity=" + quantity +
-                '}';
+                '}' + "\n";
     }
 }
