@@ -8,12 +8,12 @@ import java.util.Set;
 
 public class Store {
     private String nameStore;
-    private List<Product> products;
+    private Set<Product> products;
     private static Store store;
 
     protected Store(String name) {
         this.nameStore=name;
-        products=new ArrayList<>();
+        products=new HashSet<>();
     }
     /* Making Store singleton */
     public static Store getStore(String name) {
