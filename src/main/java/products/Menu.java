@@ -4,10 +4,12 @@ import java.util.Iterator;
 import java.util.Scanner;
 import java.util.Set;
 
+import static products.Utils.printingSet;
+
 public class Menu {
     public static Scanner sc = new Scanner(System.in);
     public static Store store = new Store("FlowerWorld");
-    public void menu() {
+    public static void menu() {
         boolean continueExecution=true;
         int option;
         menuHeader();
@@ -166,9 +168,5 @@ public class Menu {
         }
         Utils.fromDecorationSetToFile(store.getDecorations());
     }
-    public static void printingSet(Set<? extends Product> set) {
-        for(Product product:set) {
-            System.out.println(product);
-        }
-    }
+
 }

@@ -3,6 +3,10 @@ package products;
 public final class Decoration extends Product {
     private final int PRODUCTID=3;
 
+    public Decoration() {
+
+    }
+
     private Materials material;
     private String s ="hola que tal";
     private static int numDecoration;

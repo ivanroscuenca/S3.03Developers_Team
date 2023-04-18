@@ -94,4 +94,10 @@ public class Utils {
         }
     }
 
+    public static void printingSet(Set<? extends Product> set) {
+        for(Product product:set) {
+            System.out.println(product);
+        }
+    }
+
 }
