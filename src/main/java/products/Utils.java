@@ -12,6 +12,9 @@ public class Utils {
     public static void fromDecorationSetToFile(Set<Decoration> set) {
         try {
             properties.load(new FileInputStream(PROPERTIESPATH));
+            PrintWriter writer = new PrintWriter(properties.getProperty("decorations"));
+            writer.print("");
+            writer.close();
             ObjectMapper objectMapper = new ObjectMapper();
             String setToString = objectMapper.writeValueAsString(set);
             PrintWriter printWriter;
@@ -21,7 +24,39 @@ public class Utils {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+    public static void fromTreeSetToFile(Set<Tree> set) {
+        try {
+            properties.load(new FileInputStream(PROPERTIESPATH));
+            PrintWriter writer = new PrintWriter(properties.getProperty("trees"));
+            writer.print("");
+            writer.close();
+            ObjectMapper objectMapper = new ObjectMapper();
+            String setToString = objectMapper.writeValueAsString(set);
+            PrintWriter printWriter;
+            printWriter = new PrintWriter(properties.getProperty("trees"));
+            printWriter.write(setToString);
+            printWriter.close();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 
+    public static void fromFlowerSetToFile(Set<Flower> set) {
+        try {
+            properties.load(new FileInputStream(PROPERTIESPATH));
+            PrintWriter writer = new PrintWriter(properties.getProperty("flowers"));
+            writer.print("");
+            writer.close();
+            ObjectMapper objectMapper = new ObjectMapper();
+            String setToString = objectMapper.writeValueAsString(set);
+            PrintWriter printWriter;
+            printWriter = new PrintWriter(properties.getProperty("flowers"));
+            printWriter.write(setToString);
+            printWriter.close();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
     public static Set<Decoration> fromFileProductToDecorationSet() {
         try {
