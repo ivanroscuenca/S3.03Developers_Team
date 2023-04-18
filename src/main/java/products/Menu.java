@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Menu {
     public void menu() {
+        Store store = new Store("FlowerWorld");
         Scanner sc = new Scanner(System.in);
         boolean continueExecution=true;
         int option;
@@ -25,6 +26,15 @@ public class Menu {
             option = Integer.parseInt(sc.nextLine());
             switch (option) {
                 case 1: {
+                    System.out.println("Type tree name");
+                    String name=sc.nextLine();
+                    System.out.println("Type tree price");
+                    Double price=Double.parseDouble(sc.nextLine());
+                    System.out.println("Type trees quantity");
+                    Integer quantity=Integer.parseInt(sc.nextLine());
+                    System.out.println("Type tree height");
+                    Double height=Double.parseDouble(sc.nextLine());
+                    store.addTree(new Tree(name,price,quantity,height));
                     break;
                 }
                 case 2: {
