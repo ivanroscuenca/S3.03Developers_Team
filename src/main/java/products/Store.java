@@ -96,7 +96,7 @@ public class Store {
                 '}';
     }
 
-    public static void updateTrees(String name, int newQuantity){
+    public void updateTrees(String name, int newQuantity){
         boolean treeNotFound=true;
         Iterator it = this.trees.iterator();
         while(treeNotFound && it.hasNext()) {
