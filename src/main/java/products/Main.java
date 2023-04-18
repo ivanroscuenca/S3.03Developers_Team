@@ -8,14 +8,7 @@ import java.util.Set;
 public class Main {
     public static void main(String[] args) {
 
-        Store store = new Store("flor");
 
-        store.addDecoration(new Decoration("Jar",12.20, Materials.WOOD));
-;
-        store.addTree(new Tree("Oak",45.5,2,1.2));
-
-
-        store.printStock();
 
 /*
         List<Decoration> list1=new ArrayList<>();
