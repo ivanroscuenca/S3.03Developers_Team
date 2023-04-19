@@ -3,12 +3,12 @@ package products;
 import java.util.*;
 
 
-public abstract class Ticket {
-        private int id;
+public class Ticket {
+
         private HashMap<Product, Integer> tickets;
 
-        public Ticket(int id) {
-            this.id = id;
+        public Ticket() {
+
             this.tickets = new HashMap<>();
         }
 
@@ -16,9 +16,15 @@ public abstract class Ticket {
             tickets.put(product, quantity);
         }
 
-    public void removeProductTicket(int id) {
-
-       tickets.remove(id);
+    public void removeProductTicket(String name) {
+        for (Iterator<Map.Entry<Product, Integer>> it = tickets.entrySet().iterator(); it.hasNext();) {
+            Map.Entry<Product, Integer> entry = it.next();
+            Product product = entry.getKey();
+            if (product.getName().equals(name)) {
+                it.remove();
+                break;
+            }
+        }
     }
 
         public double getTotal() {
@@ -31,10 +37,8 @@ public abstract class Ticket {
             return total;
         }
 
-
     public void printTicket() {
         System.out.println("***********TOTAL TICKETS*********");
-        System.out.println("Ticket ID: " + id);
         for (Map.Entry<Product, Integer> entry : tickets.entrySet()) {
             Product product = entry.getKey();
             int quantity = entry.getValue();
@@ -42,8 +46,6 @@ public abstract class Ticket {
         }
         System.out.println("Total purchase: " + getTotal());
     }
-
-
 
     public static void printTotalTickets(List<Ticket> tickets) {
         double totalPurchase = 0.0;
@@ -54,21 +56,33 @@ public abstract class Ticket {
         System.out.println("TOTAL PURCHASE: " + totalPurchase);
     }
 
-    //new ticket
+    public Ticket generateTicket() {
+        Scanner scanner = new Scanner(System.in);
 
-//    public Ticket generateTicket(Scanner sc){
-//        System.out.println("Type your product");
-//        String nameproduct=sc.nextLine();
-//
-//        System.out.println("Type quantity of your product");
-//        Integer quantity=Integer.parseInt(sc.nextLine());
-//
-//
-//
-//    }
+        Ticket ticket = new Ticket();
 
+        while (true) {
+            System.out.println("Enter product name (or 'none' to finish adding products):");
+            String name = scanner.nextLine();
 
+            if (name.equalsIgnoreCase("none")) {
+                break;
+            }
 
+            System.out.println("Enter quantity:");
+            int quantity = scanner.nextInt();
+            scanner.nextLine();
 
+            System.out.println("Enter price:");
+            double price = scanner.nextDouble();
+            scanner.nextLine();
+
+            Product product = new Product(name, price, quantity);
+            ticket.addProductTicket(product, quantity);
+        }
+
+        return ticket;
+    }
 }
+
 
