@@ -64,7 +64,7 @@ public class Menu {
                 }
                 case 0: {
                     continueExecution=false;
-                    sc.close();
+                    terminateProgram();
                 }
             }
         }
@@ -83,6 +83,7 @@ public class Menu {
         System.out.println("10: Generating purchase ticket");
         System.out.println("11: Listing purchase tickets");
         System.out.println("12: Printing purchases incoming");
+        System.out.println("0: Program terminating");
     }
     public static void addTreeMenu() {
         System.out.println("Type tree name");
@@ -125,7 +126,6 @@ public class Menu {
             auxMaterial=Materials.PLASTIC;
         }
         store.addDecoration(new Decoration(name,price,quantity,auxMaterial));
-        Utils.fromDecorationSetToFile(store.getDecorations());
     }
     public static void menuTreeRemove() {
         System.out.println("Which tree do you want to remove? Type its name");
@@ -140,7 +140,6 @@ public class Menu {
                 treeNotFound = false;
             }
         }
-        Utils.fromTreeSetToFile(store.getTrees());
     }
     public static void menuFlowerRemove() {
         System.out.println("Which flower do you want to remove? Type its name");
@@ -155,7 +154,6 @@ public class Menu {
                 flowerNotFound = false;
             }
         }
-        Utils.fromFlowerSetToFile(store.getFlowers());
     }
     public static void menuDecorationRemove() {
         System.out.println("Which decoration do you want to remove? Type its name");
@@ -170,7 +168,6 @@ public class Menu {
                 decorationNotFound = false;
             }
         }
-        Utils.fromDecorationSetToFile(store.getDecorations());
     }
 
     public static void printingAllSets() {
@@ -180,5 +177,9 @@ public class Menu {
         System.out.println();
         Utils.printingSet(store.getDecorations());
         System.out.println();
+    }
+    public static void terminateProgram() {
+        Utils.updatingFiles(store);
+        sc.close();
     }
 }

@@ -108,4 +108,10 @@ public class Utils {
             System.out.println(product);
         }
     }
+
+    public static void updatingFiles(Store store) {
+        fromTreeSetToFile(store.getTrees());
+        fromFlowerSetToFile(store.getFlowers());
+        fromDecorationSetToFile(store.getDecorations());
+    }
 }
