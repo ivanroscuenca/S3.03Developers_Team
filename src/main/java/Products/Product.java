@@ -1,15 +1,14 @@
-package products;
+package Products;
 
 import java.util.Objects;
 
-// emmanuel
-public class Product {
+/* Making class sealed in order to control inheritance */
+public sealed class Product permits Decoration, Flower, Tree  {
+    public static final int INITIALID=1;
+    protected int id;
     protected String name;
     protected double price;
     protected int quantity;
-
-
-
 
     public Product(String name, double price, int quantity) {
         this.name = name;
@@ -18,6 +17,13 @@ public class Product {
     }
     public Product() {
 
+    }
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -42,24 +48,22 @@ public class Product {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
-
     }
-
+    /* equals depends on id */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Product product)) return false;
-        return Objects.equals(name, product.name);
+        return Objects.equals(id, product.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name);
+        return Objects.hash(id);
     }
 
     @Override
     public String toString() {
-
         return "Product name: "+this.name+" | Product price: "+this.price+" | Product quantity: "+this.quantity;
     }
 }
