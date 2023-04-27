@@ -1,13 +1,14 @@
-package StorePackage;
-import Utils.*;
-import Products.Decoration;
-import Products.Flower;
-import Products.Product;
-import Products.Tree;
+package store;
+import utils.*;
+import products.Decoration;
+import products.Flower;
+import products.Product;
+import products.Tree;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.Scanner;
 import java.util.TimeZone;
 
 public class Ticket {
@@ -46,16 +47,16 @@ public class Ticket {
         return date;
     }
     /* Generating new ticket */
-    public void generateTicket()  {
+    public void generateTicket(Scanner sc)  {
             boolean ticketGenerating = true;
             while (ticketGenerating) {
                 Store.getStore().printingFullStock();
                 System.out.println("Choose the list: decorations, flowers, trees");
-                String option = Menu.sc.nextLine();
+                String option = sc.nextLine();
                 System.out.println("Choose product id: ");
-                int id = Integer.parseInt(Menu.sc.nextLine());
+                int id = Integer.parseInt(sc.nextLine());
                 System.out.println("Choose product quantity: ");
-                int quantity = Integer.parseInt(Menu.sc.nextLine());
+                int quantity = Integer.parseInt(sc.nextLine());
                 switch (option) {
                     /* adding a decor to ticket */
                     case "decorations" -> {
@@ -101,7 +102,7 @@ public class Ticket {
                     }
                 }
                 System.out.println("Do you want to add more products? Y/N");
-                String yn= Menu.sc.nextLine();
+                String yn= sc.nextLine();
                 if(yn.equals("N")) {
                     ticketGenerating=false;
                 }

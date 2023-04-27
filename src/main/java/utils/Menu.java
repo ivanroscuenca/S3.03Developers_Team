@@ -1,8 +1,7 @@
-package Utils;
-import Products.Decoration;
-import Products.Materials;
-import StorePackage.Store;
-import StorePackage.*;
+package utils;
+import products.Materials;
+import store.Store;
+import store.*;
 
 import java.util.Scanner;
 
@@ -54,7 +53,7 @@ public class Menu {
                 }
                 case 10: {
                     Ticket ticket = new Ticket();
-                    ticket.generateTicket();
+                    ticket.generateTicket(sc);
                     System.out.println(ticket);
                     break;
                 }
