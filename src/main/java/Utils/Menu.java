@@ -1,4 +1,6 @@
 package Utils;
+import Products.Decoration;
+import Products.Materials;
 import StorePackage.Store;
 import StorePackage.*;
 
@@ -15,27 +17,27 @@ public class Menu {
             option = Integer.parseInt(sc.nextLine());
             switch (option) {
                 case 1: {
-                    Store.getStore().addTree();
+                    addTreeMenu();
                     break;
                 }
                 case 2: {
-                    Store.getStore().addFlower();
+                    addFlowerMenu();
                     break;
                 }
                 case 3: {
-                    Store.getStore().addDecoration();
+                    addDecorationMenu();
                     break;
                 }
                 case 4: {
-                    Store.getStore().removeTree();
+                    removeTreeMenu();
                     break;
                 }
                 case 5: {
-                    Store.getStore().removeFlower();
+                    removeFlowerMenu();
                     break;
                 }
                 case 6: {
-                    Store.getStore().removeDecoration();
+                    removeDecorationMenu();
                     break;
                 }
                 case 7: {
@@ -86,6 +88,70 @@ public class Menu {
         System.out.println("11: Listing purchase tickets");
         System.out.println("12: Printing purchases incoming");
         System.out.println("0: Program terminating");
+    }
+
+    public static void addTreeMenu() {
+        System.out.println("Type tree name");
+        String name = Menu.sc.nextLine();
+        System.out.println("Type tree price");
+        double price = Double.parseDouble(Menu.sc.nextLine());
+        System.out.println("Type trees quantity");
+        int quantity = Integer.parseInt(Menu.sc.nextLine());
+        System.out.println("Type tree height");
+        double height = Double.parseDouble(Menu.sc.nextLine());
+        Store.getStore().addTree(name, price, quantity, height);
+    }
+
+    public static void addFlowerMenu() {
+        System.out.println("Type flower name");
+        String name= Menu.sc.nextLine();
+        System.out.println("Type flower price");
+        double price=Double.parseDouble(Menu.sc.nextLine());
+        System.out.println("Type flowers quantity");
+        int quantity=Integer.parseInt(Menu.sc.nextLine());
+        System.out.println("Type flower colour");
+        String colour= Menu.sc.nextLine();
+        Store.getStore().addFlower(name, price, quantity, colour);
+    }
+
+    public static void addDecorationMenu() {
+        System.out.println("Type decoration name");
+        String name= Menu.sc.nextLine();
+        System.out.println("Type decoration price");
+        double price=Double.parseDouble(Menu.sc.nextLine());
+        System.out.println("Type decoration quantity");
+        int quantity=Integer.parseInt(Menu.sc.nextLine());
+        System.out.println("Type tree material: wood (W) or plastic (P)");
+        String material= Menu.sc.nextLine();
+        Materials auxMaterial=null;
+        if(material.equals("W")) {
+            auxMaterial=Materials.WOOD;
+        }
+        else if(material.equals("P")){
+            auxMaterial=Materials.PLASTIC;
+        }
+        Store.getStore().addDecoration(name, price, quantity, auxMaterial);
+    }
+
+    public static void removeTreeMenu() {
+        System.out.println("Which tree do you want to remove? Type its id");
+        Utils.printingSet(Store.getStore().getTrees());
+        int id= Integer.parseInt(Menu.sc.nextLine());
+        Store.getStore().removeTree(id);
+    }
+
+    public static void removeFlowerMenu() {
+        System.out.println("Which flower do you want to remove? Type its id");
+        Utils.printingSet(Store.getStore().getFlowers());
+        int id= Integer.parseInt(Menu.sc.nextLine());
+        Store.getStore().removeFlower(id);
+    }
+
+    public static void removeDecorationMenu() {
+        System.out.println("Which decoration do you want to remove? Type its id");
+        Utils.printingSet(Store.getStore().getDecorations());
+        int id= Integer.parseInt(Menu.sc.nextLine());
+        Store.getStore().removeDecoration(id);
     }
     public static void terminateProgram() {
         Utils.updatingFiles(Store.store);

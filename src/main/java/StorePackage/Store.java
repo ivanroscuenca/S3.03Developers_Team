@@ -67,16 +67,8 @@ public class Store {
         decorations.add(decoration);
     }
     /* Adds a new tree to the store */
-    public  void addTree() {
+    public  void addTree(String name, double price, int quantity, double height) {
         try {
-            System.out.println("Type tree name");
-            String name = Menu.sc.nextLine();
-            System.out.println("Type tree price");
-            double price = Double.parseDouble(Menu.sc.nextLine());
-            System.out.println("Type trees quantity");
-            int quantity = Integer.parseInt(Menu.sc.nextLine());
-            System.out.println("Type tree height");
-            double height = Double.parseDouble(Menu.sc.nextLine());
             Tree tree = new Tree(name, price, quantity, height);
             tree.setNewId();
             this.addTreeToSet(tree);
@@ -88,15 +80,7 @@ public class Store {
         }
     }
     /* Adds a new flower to the store */
-    public void addFlower() {
-        System.out.println("Type flower name");
-        String name= Menu.sc.nextLine();
-        System.out.println("Type flower price");
-        double price=Double.parseDouble(Menu.sc.nextLine());
-        System.out.println("Type flowers quantity");
-        int quantity=Integer.parseInt(Menu.sc.nextLine());
-        System.out.println("Type flower colour");
-        String colour= Menu.sc.nextLine();
+    public void addFlower(String name, double price, int quantity, String colour) {
         Flower flower = new Flower(name, price, quantity, colour);
         flower.setNewId();
         getStore().addFlowerToSet(flower);
@@ -104,33 +88,15 @@ public class Store {
         Utils.fromFlowerSetToFile(getStore().getFlowers());
     }
     /* Adds a new decoration to the store */
-    public void addDecoration() {
-        System.out.println("Type decoration name");
-        String name= Menu.sc.nextLine();
-        System.out.println("Type decoration price");
-        double price=Double.parseDouble(Menu.sc.nextLine());
-        System.out.println("Type decoration quantity");
-        int quantity=Integer.parseInt(Menu.sc.nextLine());
-        System.out.println("Type tree material: wood (W) or plastic (P)");
-        String material= Menu.sc.nextLine();
-        Materials auxMaterial=null;
-        if(material.equals("W")) {
-            auxMaterial=Materials.WOOD;
-        }
-        else if(material.equals("P")){
-            auxMaterial=Materials.PLASTIC;
-        }
-        Decoration decoration = new Decoration(name, price, quantity, auxMaterial);
+    public void addDecoration(String name, double price, int quantity, Materials material) {
+        Decoration decoration = new Decoration(name, price, quantity, material);
         decoration.setNewId();
         getStore().addDecorationToSet(decoration);
         getStore().setStockValue(getStore().calculatingStockValue());
         Utils.fromDecorationSetToFile(getStore().getDecorations());
     }
     /* Remove a class of tree from the store */
-    public void removeTree() {
-        System.out.println("Which tree do you want to remove? Type its id");
-        Utils.printingSet(getStore().getTrees());
-        int id= Integer.parseInt(Menu.sc.nextLine());
+    public void removeTree(int id) {
         boolean treeNotFound=true;
         Iterator<Tree> it = getStore().getTrees().iterator();
         while(treeNotFound && it.hasNext()) {
@@ -144,10 +110,7 @@ public class Store {
         Utils.fromTreeSetToFile(getStore().getTrees());
     }
     /* Remove a class of flower from the store */
-    public void removeFlower() {
-        System.out.println("Which flower do you want to remove? Type its id");
-        Utils.printingSet(getStore().getFlowers());
-        int id= Integer.parseInt(Menu.sc.nextLine());
+    public void removeFlower(int id) {
         boolean flowerNotFound=true;
         Iterator<Flower> it = getStore().getFlowers().iterator();
         while(flowerNotFound && it.hasNext()) {
@@ -161,10 +124,7 @@ public class Store {
         Utils.fromFlowerSetToFile(getStore().getFlowers());
     }
     /* Remove a class of decoration from the store */
-    public void removeDecoration() {
-        System.out.println("Which decoration do you want to remove? Type its id");
-        Utils.printingSet(getStore().getDecorations());
-        int id= Integer.parseInt(Menu.sc.nextLine());
+    public void removeDecoration(int id) {
         boolean decorationNotFound=true;
         Iterator<Decoration> it = getStore().getDecorations().iterator();
         while(decorationNotFound && it.hasNext()) {
