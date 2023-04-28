@@ -1,6 +1,6 @@
-package StorePackage;
-import Utils.*;
-import Products.*;
+package store;
+import utils.*;
+import products.*;
 
 import java.util.*;
 

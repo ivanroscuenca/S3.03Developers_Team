@@ -1,6 +1,6 @@
-package Products;
+package products;
 
-import StorePackage.Store;
+import store.Store;
 
 import java.util.Comparator;
 

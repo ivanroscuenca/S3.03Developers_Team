@@ -1,9 +1,9 @@
-package Utils;
+package utils;
 
-import StorePackage.*;
+import store.*;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import Products.*;
+import products.*;
 
 import java.io.*;
 import java.util.*;
