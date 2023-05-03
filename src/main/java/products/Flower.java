@@ -4,7 +4,7 @@ import store.Store;
 
 import java.util.Comparator;
 
-public final class  Flower extends Product {
+public final class  Flower extends Product implements IDSetter {
     private String colour;
 
     public Flower(String name, double price, int quantity, String colour) {
@@ -16,6 +16,7 @@ public final class  Flower extends Product {
 
     }
     /* Id is set getting the max id in the set and adding +1 */
+    @Override
     public void setNewId() {
         if(!Store.getStore().getFlowers().isEmpty()) {
             this.id = Store.getStore().getFlowers().stream().max(Comparator.comparing(s -> s.getId())).get().getId() + 1;
