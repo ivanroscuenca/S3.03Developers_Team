@@ -4,7 +4,7 @@ import store.Store;
 
 import java.util.Comparator;
 
-public final class Tree extends Product{
+public final class Tree extends Product implements IDSetter{
     private double height;
     public Tree(String name, double price, int quantity, double height) {
         super(name, price, quantity);
@@ -14,6 +14,7 @@ public final class Tree extends Product{
 
     }
     /* Id is set getting the max id in the set and adding +1 */
+    @Override
     public void setNewId() {
         if(!Store.getStore().getTrees().isEmpty()) {
             this.id = Store.getStore().getTrees().stream().max(Comparator.comparing(s -> s.getId())).get().getId() + 1;
